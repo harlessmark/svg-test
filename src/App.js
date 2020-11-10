@@ -1,23 +1,16 @@
 import "./App.css";
 import mergeImages from "merge-images";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/bleeblu'>
-          <img
-            src={mergeImages([
-              process.env.PUBLIC_URL + "assets/body.png",
-              process.env.PUBLIC_URL + "assets/face.png",
-              process.env.PUBLIC_URL + "assets/head.png",
-            ]).then(b64 => (document.querySelector("img").src = b64))}
-            alt='bleeblu'
-          />
-        </Route>
-      </Switch>
-    </Router>
+    <img
+      src={mergeImages([
+        process.env.PUBLIC_URL + "body.png",
+        process.env.PUBLIC_URL + "face.png",
+        process.env.PUBLIC_URL + "head.png",
+      ]).then(b64 => (document.querySelector("img").src = b64))}
+      alt='bleeblu'
+    />
   );
 }
 
